@@ -1,0 +1,9 @@
+<ul class="nav nav-tabs" role="tablist">
+  <li class="active"><%= link_to 'Bathrooms', bathrooms_path %></li>
+  <li><%= link_to 'View Comments', comments_path %></li>
+</ul>
+
+<h2>Bathrooms and Ratings</h2>
+<% @bathrooms.each do |bathroom| %>
+  <p><%= link_to bathroom.name, bathroom, class: 'btn btn-success'%>: <%= bathroom.cleanliness %></p>
+<% end %>

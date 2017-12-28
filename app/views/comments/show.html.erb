@@ -1,0 +1,10 @@
+<h2>Comment: </h2>
+
+<ul>
+  <li>User: <%= link_to @comment.user.username, @comment.user %> |
+    Bathroom: <%= link_to @comment.bathroom.name, @comment.bathroom %>
+    | Comment: <%= @comment.content %></li>
+</ul>
+
+<td><%= link_to 'All Comments', comments_path, class: 'btn btn-info' %></td>
+<%= link_to 'Delete Comment', comment_path(@comment), method: :delete, class: 'btn btn-danger'  %><br>

@@ -1,0 +1,7 @@
+<h1><%= @location.neighborhood %></h1>
+
+<ul>
+  <% @location.bathrooms.each do |bathroom| %>
+  <li><%= link_to bathroom.name, bathroom %></li>
+  <% end %>
+</ul>

@@ -1,0 +1,20 @@
+<ul>
+  <% if flash[:error] %>
+  <% flash[:error].each do |error| %>
+  <li><%= error %> </li>
+  <% end %>
+  <% end %>
+
+</ul>
+
+<%= form_for @bathroom do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name, placeholder: "Name of Bathroom" %>
+
+<%= f.label :cleanliness %>
+<%= f.text_field :cleanliness, placeholder: "Rate from 1-10" %>
+
+<%= f.collection_check_boxes :location_ids, @locations, :id, :neighborhood %>
+<%= f.submit %>
+
+<% end %>
