@@ -1,4 +1,4 @@
-<h1><%= @bathroom.name %></h1>
+<h1><%= @bathroom.name %> -  Cleanliness: <%= @bathroom.cleanliness %></h1>
 
 <ul>
   <p>Location:</p>
@@ -14,9 +14,9 @@
   <% end %>
 </ul>
 
-
 <%= link_to new_comment_path, class: 'btn btn-success' do %>
   <i class="glyphicon glyphicon-plus"></i> Create Comment
 <% end %>
 
-<%= link_to 'Delete Bathroom', bathroom_path(@bathroom), method: :delete, class: 'btn btn-danger'  %><br>
+<%= link_to 'Delete Bathroom', bathroom_path(@bathroom), method: :delete, class: 'btn btn-danger'  %>
+<%= link_to 'Edit Bathroom', edit_bathroom_path(@bathroom), class: 'btn btn-warning'  %><br>
