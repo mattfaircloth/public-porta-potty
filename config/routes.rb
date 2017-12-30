@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get 'activity/mine'
 
   get 'activity/feed'
-  root to: 'activity#mine'
+  root to: 'bathrooms#index'
   resources :comments
   resources :locations
   resources :bathroom_locations

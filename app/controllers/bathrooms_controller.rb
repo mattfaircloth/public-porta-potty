@@ -1,6 +1,7 @@
 class BathroomsController < ApplicationController
   def index
     @bathrooms = Bathroom.all
+    #@bathrooms = current_user.bathrooms
   end
 
   def new

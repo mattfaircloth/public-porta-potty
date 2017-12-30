@@ -2,3 +2,7 @@
 <% @locations.each do |location| %>
   <p><%= link_to location.neighborhood, location, class: 'btn btn-success' %></p>
 <% end %>
+
+<%= link_to new_location_path, class: 'btn btn-warning' do %>
+  <i class="glyphicon glyphicon-plus"></i> Create Location
+<% end %>
