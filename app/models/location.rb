@@ -7,12 +7,6 @@ class Location < ApplicationRecord
     "Number of Bathrooms: #{self.bathrooms.count}"
  end
 
- def location_with_most_bathrooms
-   self.bathrooms.each do |bathroom|
-      count = 0
-
-   end
- end
 
  def average_rating
    self.bathrooms.average(:cleanliness)
