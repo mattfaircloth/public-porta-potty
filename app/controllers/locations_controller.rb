@@ -22,6 +22,27 @@ class LocationsController < ApplicationController
     end
   end
 
+  def edit
+    @location = Location.find(params[:id])
+  end
+
+  def update
+    @location = Location.find(params[:id])
+    if @location.update(location_params)
+      redirect_to @location
+    else
+     flash[:error] = @location.errors.full_messages
+     redirect_to edit_location_path
+    end
+   end
+
+  def destroy
+    @location = Location.find(params[:id])
+    @location.destroy
+    redirect_to locations_path
+  end
+
+ private
 
   def location_params
     params.require(:location).permit(:neighborhood)

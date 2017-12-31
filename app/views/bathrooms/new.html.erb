@@ -13,9 +13,12 @@
 <%= f.text_field :name, placeholder: "Name of Bathroom" %>
 
 <%= f.label :cleanliness %>
-<%= f.text_field :cleanliness, placeholder: "Rate from 1-10" %>
+<%= f.text_field :cleanliness, placeholder: "Rate from 1-10" %><br>
 
-<%= f.collection_check_boxes :location_ids, @locations, :id, :neighborhood %>
+<%= f.collection_check_boxes :location_ids, @locations, :id, :neighborhood %><br>
+<%= f.fields_for :locations, @bathroom.locations.build do |locations_fields| %>
+    <%= locations_fields.text_field :neighborhood, placeholder: "Write a Neighborhood" %>
+  <% end %>
 <%= f.submit %>
 
 <% end %>

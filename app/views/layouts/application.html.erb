@@ -14,10 +14,10 @@
       <div class="row">
         <div class="col-xs-3">
           <h4>Find a Bathroom!</h4>
+          <p><%= link_to 'Signup', signup_path %></p>
+          <p><%= link_to 'Login', login_path %></p>
           <p><%= link_to 'Bathrooms', bathrooms_path %></p>
           <p><%= link_to 'View Locations', locations_path %></p>
-          ### Cleanest Bathroom <br>
-          ### Dirtiest Bathroom
         </div>
         <div class="col-xs-9">
           <%= yield %>

@@ -3,28 +3,24 @@ class Bathroom < ApplicationRecord
   has_many :locations, through: :bathroom_locations
   has_many :comments
   has_many :users, through: :comments
+  accepts_nested_attributes_for :locations
+
 
   def cleanest_bathroom
-     Bathroom.all.each do |bathroom|
-       clean_bathroom = 0
-       if bathroom.cleanliness >= clean_bathroom
-         clean_bathroom = bathroom
-     end
-     clean_bathroom
-   end
+      hash = {}
+      Bathroom.all.map do |bathroom|
+         hash[bathroom.name] = bathroom.cleanliness
+      end
+      a=hash.sort_by {|_key, value| value}.last
+      "#{a[0]} with a rating of #{a[1]}!"
   end
 
   def dirtiest_bathroom
-
+    hash = {}
+    Bathroom.all.map do |bathroom|
+       hash[bathroom.name] = bathroom.cleanliness
+    end
+    a=hash.sort_by {|_key, value| value}.first
+    "#{a[0]} with a rating of #{a[1]}!"
   end
-
 end
-
-#How many bathrooms has this user reviewed?
-#How many comments has this user made?
-#average bathroom cleanliness
-#which neighborhood has the most bathrooms
-#which neighborhood has the least bathrooms
-#cleanest bathroom
-#dirtiest bathroom
-#bathrooms with a rating higher than 5

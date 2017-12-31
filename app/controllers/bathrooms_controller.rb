@@ -1,7 +1,7 @@
 class BathroomsController < ApplicationController
   def index
     @bathrooms = Bathroom.all
-    
+
     #@bathrooms = current_user.bathrooms
   end
 
@@ -32,8 +32,7 @@ class BathroomsController < ApplicationController
 
   def update
     @bathroom = Bathroom.find(params[:id])
-    if @bathroom.valid?
-      @bathroom.save
+    if @bathroom.update(bathroom_params)
       redirect_to @bathroom
     else
      flash[:error] = @bathroom.errors.full_messages
@@ -51,6 +50,6 @@ class BathroomsController < ApplicationController
   private
 
     def bathroom_params
-      params.require(:bathroom).permit(:name, :cleanliness, location_ids: [])
+      params.require(:bathroom).permit(:name, :cleanliness, location_ids: [], locations_attributes: [:neighborhood])
     end
 end
